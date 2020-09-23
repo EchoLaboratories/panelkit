@@ -11,7 +11,9 @@ import Foundation
 public struct PanelPinnedMetadata: Codable, Hashable {
 	public var side: PanelPinSide
 	public var index: Int
-	let date = Date()
+    // iPadOS 14 warning fix. From the unit test testDecodeStates() it looks like
+    // date is meant to be codable
+	var date = Date()
 	
 	public init(side: PanelPinSide, index: Int) {
 		self.side = side
